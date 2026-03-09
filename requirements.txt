@@ -1,0 +1,10 @@
+vllm>=0.4.0
+transformers>=4.40.0
+torch>=2.0.0
+torchvision
+Pillow
+tqdm
+numpy
+sentencepiece
+packaging
+requests
