@@ -94,9 +94,9 @@ def preprocess_batch_videos(batch: List[Dict], processor, max_pixels: int = None
         # Prepare message
         message, question = prepare_messages_for_vllm(data_dict, max_pixels=max_pixels, min_pixels=min_pixels)
 
-        # Get ground truth answer
+        # Get ground truth answer (if available)
         convs = data_dict['conversations']
-        gnd = convs[1]['value']
+        gnd = convs[1]['value'] if len(convs) > 1 else None
 
         # Apply medical vision processing (unified function with RC support)
         messages_list = [message]
@@ -125,16 +125,19 @@ def preprocess_batch_videos(batch: List[Dict], processor, max_pixels: int = None
         )
         prompts.append(prompt)
 
-        # Store metadata
-        metadata_list.append({
+        # Store metadata (exclude 'gnd' for test data without ground truth)
+        meta = {
             'original_idx': data_dict['original_idx'],
             'metadata': data_dict.get('metadata', None),
             'qa_type': data_dict.get('qa_type', None),
             'struc_info': data_dict.get('struc_info', None),
             'question': question,
-            'gnd': gnd,
             'data_source': data_dict.get('data_source', None),
-        })
+        }
+        # Only include ground truth if available (training data)
+        if gnd is not None:
+            meta['gnd'] = gnd
+        metadata_list.append(meta)
 
     return prompts, video_frames_list, metadata_list
 
@@ -171,15 +174,18 @@ def process_batch_vllm(
     for output, metadata in zip(outputs, metadata_list):
         generated_text = output.outputs[0].text
 
-        batch_results[metadata['original_idx']] = {
+        result = {
             'metadata': metadata['metadata'],
             'qa_type': metadata['qa_type'],
             'struc_info': metadata['struc_info'],
             'question': metadata['question'],
-            'gnd': metadata['gnd'],
             'answer': generated_text,
             'data_source': metadata['data_source'],
         }
+        # Only include ground truth if available (training data)
+        if 'gnd' in metadata:
+            result['gnd'] = metadata['gnd']
+        batch_results[metadata['original_idx']] = result
 
     return batch_results
 

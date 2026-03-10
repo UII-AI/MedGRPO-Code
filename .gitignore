@@ -1,0 +1,21 @@
+# Model files (download from Hugging Face)
+models/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.so
+
+# Results and logs (user-generated)
+results/logs/
+results/*.json
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+*.swp
+
+# Temp
+*.tmp
+*.log
