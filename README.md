@@ -1,8 +1,6 @@
-# MedGPRO-Inference
+# MedGPRO (CVPR 2026)
 
 Inference pipeline for **MedGPRO** — Qwen2.5-VL-7B fine-tuned on medical video understanding via SFT + GRPO.
-
-> **Accepted at CVPR 2026**
 
 **📄 Paper**: [arXiv:2512.06581](https://arxiv.org/abs/2512.06581)
 **🌐 Project Page**: [yuhaosu.github.io/MedGRPO](https://yuhaosu.github.io/MedGRPO/)
