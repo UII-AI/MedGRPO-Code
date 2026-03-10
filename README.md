@@ -119,7 +119,7 @@ bash run_inference.sh
 
 ## Output Format
 
-Results are saved as a dict keyed by sequential index:
+Inference saves results as a dict keyed by sequential index:
 
 ```json
 {
@@ -135,7 +135,25 @@ Results are saved as a dict keyed by sequential index:
 }
 ```
 
-Submit your `results.json` to the [MedVidBench Leaderboard](https://huggingface.co/spaces/UIIAmerica/MedVidBench-Leaderboard) for evaluation.
+## Leaderboard Submission
+
+The leaderboard expects a **list** with `prediction` field. Convert first:
+
+```bash
+python3 utils/convert_to_submission.py results/results.json submission.json
+```
+
+Output `submission.json`:
+
+```json
+[
+  {"id": "video_001", "qa_type": "tal", "prediction": "The action starts at 5.2s and ends at 12.7s."},
+  {"id": "video_002", "qa_type": "stg", "prediction": "..."},
+  ...
+]
+```
+
+Then upload `submission.json` to the [MedVidBench Leaderboard](https://huggingface.co/spaces/UIIAmerica/MedVidBench-Leaderboard).
 
 ## Notes
 
