@@ -2,6 +2,8 @@
 
 Inference pipeline for **MedGPRO** — Qwen2.5-VL-7B fine-tuned on medical video understanding via SFT + GRPO.
 
+> **Accepted at CVPR 2026**
+
 **📄 Paper**: [arXiv:2512.06581](https://arxiv.org/abs/2512.06581)
 **🌐 Project Page**: [yuhaosu.github.io/MedGRPO](https://yuhaosu.github.io/MedGRPO/)
 **🤗 Model**: [UIIAmerica/Qwen2.5-VL-7B-MedGRPO](https://huggingface.co/UIIAmerica/Qwen2.5-VL-7B-MedGRPO)
@@ -149,7 +151,7 @@ Submit your `results.json` to the [MedVidBench Leaderboard](https://huggingface.
 @article{su2024medgrpo,
   title={MedGRPO: Multi-Task Reinforcement Learning for Heterogeneous Medical Video Understanding},
   author={Su, Yuhao and Choudhuri, Anwesa and Gao, Zhongpai and Planche, Benjamin and Nguyen, Van Nguyen and Zheng, Meng and Shen, Yuhan and Innanje, Arun and Chen, Terrence and Elhamifar, Ehsan and Wu, Ziyan},
-  journal={arXiv preprint arXiv:2512.06581},
-  year={2025}
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  year={2026}
 }
 ```
