@@ -4,11 +4,13 @@ Inference pipeline for **MedGPRO** — Qwen2.5-VL-7B fine-tuned on medical video
 
 **📄 Paper**: [arXiv:2512.06581](https://arxiv.org/abs/2512.06581)
 
-**🌐 Project Page**: [gaozhongpai.github.io/MedGRPO-Page](https://gaozhongpai.github.io/MedGRPO-Page/)
+**🌐 Project Page**: [uii-america.github.io/MedGRPO](https://uii-america.github.io/MedGRPO/)
 
 **🤗 Model**: [UIIAmerica/Qwen2.5-VL-7B-MedGRPO](https://huggingface.co/UIIAmerica/Qwen2.5-VL-7B-MedGRPO)
 
 **🤗 Dataset**: [UIIAmerica/MedVidBench](https://huggingface.co/datasets/UIIAmerica/MedVidBench)
+
+**🎮 Demo**: [UIIAmerica/MedGRPO-Demo](https://huggingface.co/spaces/UIIAmerica/MedGRPO-Demo)
 
 **📊 Leaderboard**: [UIIAmerica/MedVidBench-Leaderboard](https://huggingface.co/spaces/UIIAmerica/MedVidBench-Leaderboard)
 
