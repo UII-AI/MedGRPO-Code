@@ -1,10 +1,10 @@
 # MedGRPO Inference (CVPR 2026)
 
-Reference inference pipeline for the **uAI-NEXUS-MedVLM** family — medical video-understanding models trained with SFT + MedGRPO.
+Reference inference pipeline for **uAI-NEXUS-MedVLM-1.0a-7B-RL** — a medical video-understanding model trained with SFT + MedGRPO on Qwen2.5-VL-7B.
 
 - **📄 Paper**: [arXiv:2512.06581](https://arxiv.org/abs/2512.06581)
 - **🌐 Project Page**: [uii-ai.github.io/MedGRPO](https://uii-ai.github.io/MedGRPO/)
-- **🤗 Model**: [UII-AI/uAI-NEXUS-MedVLM-1.0a-7B-RL](https://huggingface.co/UII-AI/uAI-NEXUS-MedVLM-1.0a-7B-RL) *(1.0b / 1.0c variants available)*
+- **🤗 Model**: [UII-AI/uAI-NEXUS-MedVLM-1.0a-7B-RL](https://huggingface.co/UII-AI/uAI-NEXUS-MedVLM-1.0a-7B-RL)
 - **🤗 Dataset**: [UII-AI/MedVidBench](https://huggingface.co/datasets/UII-AI/MedVidBench)
 - **🎮 Demo**: [UII-AI/MedGRPO-Demo](https://huggingface.co/spaces/UII-AI/MedGRPO-Demo)
 - **📊 Leaderboard**: [UII-AI/MedVidBench-Leaderboard](https://huggingface.co/spaces/UII-AI/MedVidBench-Leaderboard)
