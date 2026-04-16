@@ -31,7 +31,7 @@ def convert(input_path: str, output_path: str):
         json.dump(submissions, f, indent=2)
 
     print(f"✓ Converted {len(submissions)} samples → {output_path}")
-    print(f"  Ready to submit to: https://huggingface.co/spaces/UIIAmerica/MedVidBench-Leaderboard")
+    print(f"  Ready to submit to: https://huggingface.co/spaces/UII-AI/MedVidBench-Leaderboard")
 
 
 if __name__ == "__main__":

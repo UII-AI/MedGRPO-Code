@@ -4,15 +4,15 @@ Inference pipeline for **MedGPRO** — Qwen2.5-VL-7B fine-tuned on medical video
 
 **📄 Paper**: [arXiv:2512.06581](https://arxiv.org/abs/2512.06581)
 
-**🌐 Project Page**: [uii-america.github.io/MedGRPO](https://uii-america.github.io/MedGRPO/)
+**🌐 Project Page**: [uii-ai.github.io/MedGRPO](https://uii-ai.github.io/MedGRPO/)
 
-**🤗 Model**: [UIIAmerica/Qwen2.5-VL-7B-MedGRPO](https://huggingface.co/UIIAmerica/Qwen2.5-VL-7B-MedGRPO)
+**🤗 Model**: [UII-AI/Qwen2.5-VL-7B-MedGRPO](https://huggingface.co/UII-AI/Qwen2.5-VL-7B-MedGRPO)
 
-**🤗 Dataset**: [UIIAmerica/MedVidBench](https://huggingface.co/datasets/UIIAmerica/MedVidBench)
+**🤗 Dataset**: [UII-AI/MedVidBench](https://huggingface.co/datasets/UII-AI/MedVidBench)
 
-**🎮 Demo**: [UIIAmerica/MedGRPO-Demo](https://huggingface.co/spaces/UIIAmerica/MedGRPO-Demo)
+**🎮 Demo**: [UII-AI/MedGRPO-Demo](https://huggingface.co/spaces/UII-AI/MedGRPO-Demo)
 
-**📊 Leaderboard**: [UIIAmerica/MedVidBench-Leaderboard](https://huggingface.co/spaces/UIIAmerica/MedVidBench-Leaderboard)
+**📊 Leaderboard**: [UII-AI/MedVidBench-Leaderboard](https://huggingface.co/spaces/UII-AI/MedVidBench-Leaderboard)
 
 ## Directory Structure
 
@@ -41,14 +41,14 @@ pip install -r requirements.txt
 
 ```bash
 # Download from Hugging Face
-huggingface-cli download UIIAmerica/Qwen2.5-VL-7B-MedGRPO --local-dir models/Qwen2.5-VL-7B-MedGRPO
+huggingface-cli download UII-AI/Qwen2.5-VL-7B-MedGRPO --local-dir models/Qwen2.5-VL-7B-MedGRPO
 ```
 
 ### 3. Download the test data
 
 ```bash
 # Download MedVidBench test set
-huggingface-cli download UIIAmerica/MedVidBench cleaned_test_data_11_04.json --repo-type dataset --local-dir .
+huggingface-cli download UII-AI/MedVidBench cleaned_test_data_11_04.json --repo-type dataset --local-dir .
 ```
 
 ### 4. Run inference
@@ -159,7 +159,7 @@ Output `submission.json`:
 ]
 ```
 
-Then upload `submission.json` to the [MedVidBench Leaderboard](https://huggingface.co/spaces/UIIAmerica/MedVidBench-Leaderboard).
+Then upload `submission.json` to the [MedVidBench Leaderboard](https://huggingface.co/spaces/UII-AI/MedVidBench-Leaderboard).
 
 ## Notes
 
