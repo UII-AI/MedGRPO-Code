@@ -169,11 +169,15 @@ Then upload `submission.json` to the [MedVidBench Leaderboard](https://huggingfa
 
 ## Citation
 
+If you use our model or benchmark (MedVidBench / uAI-NEXUS-MedVLM), please cite our paper:
+
 ```bibtex
-@article{su2024medgrpo,
-  title={MedGRPO: Multi-Task Reinforcement Learning for Heterogeneous Medical Video Understanding},
-  author={Su, Yuhao and Choudhuri, Anwesa and Gao, Zhongpai and Planche, Benjamin and Nguyen, Van Nguyen and Zheng, Meng and Shen, Yuhan and Innanje, Arun and Chen, Terrence and Elhamifar, Ehsan and Wu, Ziyan},
-  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
-  year={2026}
+@inproceedings{su2026medgrpo,
+  title     = {{MedGRPO}: Multi-Task Reinforcement Learning for Heterogeneous Medical Video Understanding},
+  author    = {Su, Yuhao and Choudhuri, Anwesa and Gao, Zhongpai and Planche, Benjamin and
+               Nguyen, Van Nguyen and Zheng, Meng and Shen, Yuhan and Innanje, Arun and
+               Chen, Terrence and Elhamifar, Ehsan and Wu, Ziyan},
+  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  year      = {2026}
 }
 ```
