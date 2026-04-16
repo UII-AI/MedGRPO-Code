@@ -10,7 +10,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 # ============================================================
 # CONFIGURATION - Edit these
 # ============================================================
-MODEL_PATH="${SCRIPT_DIR}/models/Qwen2.5-VL-7B-MedGRPO"
+MODEL_PATH="${SCRIPT_DIR}/models/uAI-NEXUS-MedVLM-1.0a-7B-RL"
 DATA_PATH="/root/code/MedVidBench/cleaned_test_data_11_04.json"
 OUTPUT_DIR="${SCRIPT_DIR}/results"
 N_GPUS=1          # Set to 1 for single-GPU, or N for multi-GPU

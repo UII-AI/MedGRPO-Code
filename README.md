@@ -6,7 +6,7 @@ Inference pipeline for **MedGPRO** — Qwen2.5-VL-7B fine-tuned on medical video
 
 **🌐 Project Page**: [uii-ai.github.io/MedGRPO](https://uii-ai.github.io/MedGRPO/)
 
-**🤗 Model**: [UII-AI/Qwen2.5-VL-7B-MedGRPO](https://huggingface.co/UII-AI/Qwen2.5-VL-7B-MedGRPO)
+**🤗 Model**: [UII-AI/uAI-NEXUS-MedVLM-1.0a-7B-RL](https://huggingface.co/UII-AI/uAI-NEXUS-MedVLM-1.0a-7B-RL)
 
 **🤗 Dataset**: [UII-AI/MedVidBench](https://huggingface.co/datasets/UII-AI/MedVidBench)
 
@@ -41,7 +41,7 @@ pip install -r requirements.txt
 
 ```bash
 # Download from Hugging Face
-huggingface-cli download UII-AI/Qwen2.5-VL-7B-MedGRPO --local-dir models/Qwen2.5-VL-7B-MedGRPO
+huggingface-cli download UII-AI/uAI-NEXUS-MedVLM-1.0a-7B-RL --local-dir models/uAI-NEXUS-MedVLM-1.0a-7B-RL
 ```
 
 ### 3. Download the test data
@@ -94,7 +94,7 @@ The inference script expects JSON files in **SFT format**:
 
 ```bash
 CUDA_VISIBLE_DEVICES=0 python3 inference/vllm_infer.py \
-    --model_path ./models/Qwen2.5-VL-7B-MedGRPO \
+    --model_path ./models/uAI-NEXUS-MedVLM-1.0a-7B-RL \
     --data_path test_data.json \
     --output_path results.json \
     --batch_size 4 \
