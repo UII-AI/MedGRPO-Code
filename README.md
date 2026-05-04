@@ -15,13 +15,16 @@ Reference inference pipeline for **uAI-NEXUS-MedVLM-1.0a-7B-RL** — a medical v
 MedGPRO-Inference/
 ├── inference/
 │   ├── vllm_infer.py              # VLLM batch inference engine
+│   ├── vllm_infer_oneshot.py      # One-shot variant (in-context format example)
+│   ├── oneshot_examples.json      # Curated example Q/A per qa_type
 │   └── vision_process_medical.py  # Medical video frame processing (RC box support)
 ├── utils/
 │   ├── split_data_balanced.py     # Split data across GPUs (balanced by task)
 │   ├── merge_results_manual.py    # Merge per-GPU results
 │   └── convert_to_submission.py   # Convert results.json → leaderboard submission
 ├── results/                       # Inference outputs (gitignored)
-├── run_inference.sh               # Launcher (single- and multi-GPU)
+├── run_inference.sh               # Launcher (zero-shot, single- and multi-GPU)
+├── run_inference_oneshot.sh       # Launcher (one-shot variant)
 └── requirements.txt
 ```
 
@@ -50,11 +53,16 @@ huggingface-cli download UII-AI/MedVidBench cleaned_test_data_11_04.json \
 ### 4. Run inference
 
 ```bash
+# Zero-shot
 bash run_inference.sh
 # Output: results/results.json
+
+# One-shot (recommended for non-finetuned base models — see "One-Shot Inference" below)
+bash run_inference_oneshot.sh
+# Output: results/oneshot/results.json
 ```
 
-Edit the `CONFIGURATION` block at the top of `run_inference.sh` to set `MODEL_PATH`, `DATA_PATH`, `N_GPUS`, and `GPUS`.
+Edit the `CONFIGURATION` block at the top of either script to set `MODEL_PATH`, `DATA_PATH`, `N_GPUS`, and `GPUS`.
 
 ## Input Data Format
 
@@ -159,18 +167,51 @@ Example `submission.json`:
 
 ```json
 [
-  {"id": "video_001", "qa_type": "tal", "prediction": "The action starts at 5.2s and ends at 12.7s."},
-  {"id": "video_002", "qa_type": "stg", "prediction": "..."}
+  {"id": "kcOqlifSukA&&22425&&25124&&1.0", "qa_type": "tal", "prediction": "22.0-78.0, 89.0-94.0 seconds."},
+  {"id": "VsKw5d-4rq8&&13561&&16184&&1.0", "qa_type": "stg", "prediction": "0.0 seconds: [445, 107, 582, 262]"}
 ]
 ```
 
+The `id` field is composed as `{video_id}&&{start_frame}&&{end_frame}&&{fps}` from the test data's metadata.
+
 Then upload `submission.json` via the leaderboard's **Step 1: Submit & Evaluate** form.
+
+## One-Shot Inference
+
+`run_inference_oneshot.sh` adds a per-task one-shot example to a system message before each query, teaching the model the leaderboard's expected output format. This is most useful for **base / general-purpose VLMs that were not finetuned on MedVidBench** — without an in-context example they often produce well-meaning but unparseable prose (e.g. STG bbox queries answered as natural-language descriptions, CVS criteria scored on the wrong scale), which the leaderboard's strict regex parser scores as 0.
+
+**How it works:**
+
+- `inference/oneshot_examples.json` — curated `{question, answer}` per `qa_type` (no train-data dependency).
+- `inference/vllm_infer_oneshot.py` — wraps the example in a system message:
+  ```
+  You are an expert medical video analyst. Below is an example of the
+  expected question and answer format for this task.
+  --- Example ---
+  Question: <example question>
+  Answer:   <example answer>
+  --- End Example ---
+  Follow the same answer format exactly. Be concise and precise.
+  ```
+- **CVS uses a randomized synthetic example per sample** (seeded by row index): rather than reuse the static answer in `oneshot_examples.json` (which would bias outputs toward `[0, 0, 0]`), each sample gets a uniform random triplet from `{0, 1, 2}³`. This keeps the format demonstration intact while preventing answer leakage.
+
+To override the bundled examples, point `--examples_path` at your own JSON keyed by `qa_type`:
+
+```json
+{
+  "tal":  {"question": "...", "answer": "1.1-3.0 seconds."},
+  "stg":  {"question": "...", "answer": "1.0 seconds: [235, 261, 561, 1005]"}
+}
+```
+
+For finetuned models that already emit the correct format, zero-shot (`run_inference.sh`) is faster and equivalent.
 
 ## Implementation Details
 
 - `vision_process_medical.py` handles per-sample FPS and draws bounding boxes for region-caption samples (`is_RC: true`).
 - Decoding is greedy (`temperature=0.0`) by default.
 - The model path must be a local directory in HuggingFace format (use `huggingface-cli download` as shown above).
+- One-shot inference adds the example only as a system message; the user-turn video and question are unchanged, so the same `vllm_infer.py` chat template applies.
 
 ## Citation
 
