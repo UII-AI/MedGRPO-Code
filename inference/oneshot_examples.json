@@ -1,0 +1,46 @@
+{
+  "cvs_assessment": {
+    "question": "You are an expert in intraoperative safety assessment. This Cholec80-CVS clip is used to score the Critical View of Safety. Using Strasberg’s guidelines for the Critical View of Safety, assign a score (0,1,2) to each of the following: (1) confirmation that exactly two structures enter the gallbladder, (2) proper dissection of the gallbladder off the cystic plate, and (3) full clearance of the hepatocystic triangle.",
+    "answer": "Two structures: 2, Cystic plate: 1, Hepatocystic triangle: 0"
+  },
+  "dense_captioning_gemini": {
+    "question": "You are an expert in understanding procedural healthcare videos. This recording shows a partial sequence from a nursing procedure in a clinical setting. In this Administering Oral Medications procedure video, create an event list restricted to actions in Assist patient taking medicine, Check, Document, Handwashing, Organize the bed unit, Position the patient, Prepare medications. For each event: (1) start_time, (2) end_time, (3) description of this event.",
+    "answer": "1.0-29.0 seconds: check: The healthcare professional retrieves a record sheet from the medical tray, reviews its contents while facing the patient mannequin, and then returns the document to the tray."
+  },
+  "dense_captioning_gpt": {
+    "question": "You are an expert in healthcare workflow understanding. The footage captures a segment of a nursing procedure in a realistic clinical setting. This clip is from the Retention Enema procedure. Filter the video for events matching Check, Handwashing, Inject medication, Insert rectal tube, Organize the bed unit, Place an underpad, Position the patient, Remove rectal tube. Return a list of non-overlapping segments with [start_time, end_time] and a factual caption.",
+    "answer": "36.0-49.0 seconds: place an underpad: The clinician, wearing gloves, unfolds and positions a disposable underpad beneath the patient's hip area on the bed, smoothing it out to establish a protective barrier prior to the retention enema procedure."
+  },
+  "next_action": {
+    "question": "You are an expert in surgical analysis. The video comes from the AVOS dataset of open surgeries The procedure includes the following step list: ['cutting', 'tying', 'suturing']. What comes next after the current video?",
+    "answer": "tying"
+  },
+  "region_caption_gemini": {
+    "question": "You are an expert in analyzing surgical procedures from an egocentric view. This video documents an open surgery from the surgeon’s visual field. From 0.0 seconds to 24.0 seconds, what is the object doing in the region given by the bounding box at 0.0 seconds?",
+    "answer": "Held by the right hand, the pen is positioned near the surgical site, poised for marking the tissue."
+  },
+  "region_caption_gpt": {
+    "question": "You are an expert in surgical video interpretation. This is an egocentric recording of an open surgery procedure captured from a head-mounted camera. Describe the activity or state of the object inside the bounding box at 8.0 seconds, over the interval from 8.0 to 96.0 seconds.",
+    "answer": "The suction cannula, firmly held by the primary surgeon’s left hand, is used to clear fluids and maintain a dry operative area by the incision."
+  },
+  "skill_assessment": {
+    "question": "You are an expert in surgical video analysis. This clip features robotic bench-top tasks like suturing, knot-tying, or needle-passing. Review the surgical procedure and score the following aspects (1,2,3,4,5 scale): Respect for tissue, Suture/needle handling, Time and motion, Flow of operation, Overall performance, Quality of final product.",
+    "answer": "Respect for tissue: 2/5, Suture/needle handling: 1/5, Time and motion: 1/5, Flow of operation: 2/5, Overall performance: 1/5, Quality of final product: 3/5"
+  },
+  "stg": {
+    "question": "You are an expert in surgical video interpretation. The following clip depicts an endoscopic submucosal dissection (ESD), a precise technique for lesion removal captured via an endoscopic camera. What are the bounding boxes of the forceps sampled every 4 seconds from 1 to 7 seconds?",
+    "answer": "1.0 seconds: [235.08, 261.2, 561.58, 1005.62] 5.0 seconds: [274.26, 261.2, 561.58, 1005.62]"
+  },
+  "tal": {
+    "question": "You are an expert in procedural video interpretation. This video shows part of a nursing procedure performed in a clinical environment. In this Intravenous Blood Sampling procedure video, possible actions are: Blood collection, Check, Disinfect skin, Document, Handwashing, Mix blood sample, Select a vein, Venipuncture. Find the segment(s) where Disinfect skin happens.",
+    "answer": "1.1-3.0 seconds."
+  },
+  "video_summary_gemini": {
+    "question": "You are a specialist in analyzing endoscopic surgery videos. This recording shows a submucosal dissection procedure, where mucosal flaps are carefully manipulated using specialized instruments. Summarize the video content in a short paragraph, focusing on the main idea or purpose.",
+    "answer": "Forceps manipulate the mucosal flap for retraction, then provide countertraction for precise knife dissection from the underlying submucosa."
+  },
+  "video_summary_gpt": {
+    "question": "You are a specialist in analyzing endoscopic surgery videos. This recording shows a submucosal dissection procedure, where mucosal flaps are carefully manipulated using specialized instruments. Give a concise overview of what the video is about, without going into detailed steps.",
+    "answer": "The procedure features coordinated forceps countertraction and knife dissection to progressively mobilize the mucosal flap, interspersed with brief pauses for camera realignment and optimal visualization."
+  }
+}

@@ -11,6 +11,7 @@ results
 
 # IDE / OS
 .vscode/
+run_inference_lingshu*.sh
 .idea/
 .venv*
 .DS_Store
