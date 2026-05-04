@@ -7,12 +7,12 @@ __pycache__/
 *.so
 
 # Results and logs (user-generated)
-results/logs/
-results/*.json
+results
 
 # IDE / OS
 .vscode/
 .idea/
+.venv*
 .DS_Store
 *.swp
 
